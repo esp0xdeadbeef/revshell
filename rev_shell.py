@@ -19,7 +19,7 @@ def get_shell(driver, shell_type=''):
     )
     shells = shells_table.find_elements_by_tag_name('button')
     for shell in shells:
-        if shell_type.lower() in shell.text.lower() and len(shell_type) > 1:
+        if shell_type.lower() == shell.text.lower():
             shell.click()
             while driver.find_element_by_id('reverse-shell-command').text == None:
                 pass
