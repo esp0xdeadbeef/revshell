@@ -159,6 +159,13 @@ if __name__ == "__main__":
         help="interpeter type (python/php/rust/...)"
     )
     parser.add_argument(
+        "-c",
+        "--use-chrome",
+        type=str2bool,
+        default=False,
+        help="Use chrome, default False (default: firefox with geckodriver_autoinstaller)"
+    )
+    parser.add_argument(
         "-ifs",
         '--white-spaces',
         default=" ",
@@ -174,7 +181,7 @@ docker run --rm -it -p 80:80 reverse_shell_generator
                         """)
     args = parser.parse_args()
     logging.debug(args.url)
-    if 0:
+    if args.use_chrome:
         from selenium.webdriver import ChromeOptions
         opts = ChromeOptions()
         opts.add_argument("--headless")
