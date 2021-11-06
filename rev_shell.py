@@ -193,5 +193,5 @@ docker run --rm -it -p 80:80 reverse_shell_generator
         from selenium.webdriver import FirefoxOptions
         opts = FirefoxOptions()
         opts.add_argument("--headless")
-        with webdriver.Firefox(options=opts) as driver:
+        with webdriver.Firefox(options=opts, service_log_path='/dev/null') as driver:
             main(driver, args)
