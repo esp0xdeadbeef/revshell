@@ -176,9 +176,11 @@ if __name__ == "__main__":
                         default="https://www.revshells.com/",
                         help="""Url of revshells.com or somewhere local.
 git clone https://github.com/0dayCTF/reverse-shell-generator;
-docker run --rm -it -p 80:80 reverse_shell_generator;
-docker run --rm -it -p 80:80 reverse_shell_generator
-                        """)
+cd reverse-shell-generator/
+docker build -t reverse-shell-generator . 
+docker run --rm -it -p 80:80 reverse-shell-generator
+# and you have it locally
+""")
     args = parser.parse_args()
     logging.debug(args.url)
     if args.use_chrome:
